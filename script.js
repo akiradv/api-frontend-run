@@ -1,4 +1,4 @@
-const API = "http://api-backend-4wc5.onrender.com/";
+const API = "https://api-backend-4wc5.onrender.com/";
 let token = localStorage.getItem("token");
 
 const authBox = document.getElementById("authBox");
