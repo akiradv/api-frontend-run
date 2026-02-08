@@ -3,10 +3,21 @@ let token = localStorage.getItem("token");
 
 const authBox = document.getElementById("authBox");
 const postBox = document.getElementById("postBox");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const authMsg = document.getElementById("authMsg");
+const title = document.getElementById("title");
+const content = document.getElementById("content");
+const feed = document.getElementById("feed");
 
 if (token) showPosts();
 
 function register() {
+  if (!username.value || !password.value) {
+    authMsg.innerText = "Preencha todos os campos";
+    return;
+  }
+
   fetch(`${API}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -17,11 +28,21 @@ function register() {
   })
   .then(r => r.json())
   .then(data => {
-    authMsg.innerText = data.success ? "Registrado! Agora faça login." : "Erro ao registrar";
+    authMsg.innerText = data.success 
+      ? "Registrado! Agora faça login." 
+      : data.error || "Erro ao registrar";
+  })
+  .catch(() => {
+    authMsg.innerText = "Erro de conexão com a API";
   });
 }
 
 function login() {
+  if (!username.value || !password.value) {
+    authMsg.innerText = "Digite usuário e senha";
+    return;
+  }
+
   fetch(`${API}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -39,6 +60,9 @@ function login() {
     } else {
       authMsg.innerText = "Login inválido";
     }
+  })
+  .catch(() => {
+    authMsg.innerText = "Erro ao conectar com a API";
   });
 }
 
@@ -49,6 +73,8 @@ function showPosts() {
 }
 
 function createPost() {
+  if (!title.value || !content.value) return;
+
   fetch(`${API}/posts`, {
     method: "POST",
     headers: {
@@ -72,6 +98,7 @@ function loadPosts() {
     .then(r => r.json())
     .then(posts => {
       feed.innerHTML = "";
+
       posts.forEach(post => {
         feed.innerHTML += `
           <div class="card">
@@ -81,5 +108,8 @@ function loadPosts() {
           </div>
         `;
       });
+    })
+    .catch(() => {
+      feed.innerHTML = "<p>Erro ao carregar posts</p>";
     });
 }
