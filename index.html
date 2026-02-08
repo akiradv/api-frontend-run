@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>🚀 Update Panel</h1>
+
+  <!-- LOGIN / REGISTER -->
+  <div id="authBox">
+    <input id="username" placeholder="Usuário">
+    <input id="password" type="password" placeholder="Senha">
+
+    <button onclick="register()">Registrar</button>
+    <button onclick="login()">Login</button>
+
+    <p id="authMsg"></p>
+  </div>
+
+  <!-- CREATE POST -->
+  <div id="postBox" class="hidden">
+    <h2>Criar atualização</h2>
+
+    <input id="title" placeholder="Título">
+    <textarea id="content" placeholder="Conteúdo"></textarea>
+
+    <button onclick="createPost()">Postar</button>
+
+    <h2>📢 Feed</h2>
+    <div id="feed"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

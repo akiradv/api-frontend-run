@@ -1,0 +1,49 @@
+body {
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    width: 420px;
+    margin-top: 40px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: none;
+    background: #1e1e1e;
+    color: white;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #1db954;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #1ed760;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .card {
+    background: #1e1e1e;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  
