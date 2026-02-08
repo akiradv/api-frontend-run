@@ -22,17 +22,24 @@
     <p id="authMsg"></p>
   </div>
 
-  <!-- CREATE POST -->
+  <!-- PAINEL -->
   <div id="postBox" class="hidden">
-    <h2>Criar atualização</h2>
+
+    <div class="topbar">
+      <h2>Painel de Atualizações</h2>
+      <button onclick="logout()">Sair</button>
+    </div>
+
+    <h3>Criar atualização</h3>
 
     <input id="title" placeholder="Título">
     <textarea id="content" placeholder="Conteúdo"></textarea>
 
     <button onclick="createPost()">Postar</button>
 
-    <h2>📢 Feed</h2>
+    <h3>📢 Feed</h3>
     <div id="feed"></div>
+
   </div>
 
 </div>
